@@ -12,4 +12,9 @@
     <string name="find_a_team_in_your_city_and_dominate_the_league">Find a team in your city, and dominate the league
     </string>
     <string name="get_started">Get started</string>
+    <string name="toggleButton">ToggleButton</string>
+    <string name="begginner">Begginner</string>
+    <string name="baller">Baller</string>
+    <string name="button">Button</string>
+    <string name="search_league">Looking for a mixed beginner league</string>
 </resources>
