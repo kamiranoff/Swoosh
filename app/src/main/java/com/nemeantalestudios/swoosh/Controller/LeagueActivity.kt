@@ -19,6 +19,18 @@ class LeagueActivity : AppCompatActivity() {
         setContentView(R.layout.activity_league)
     }
 
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelable(PLAYER, player)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if (savedInstanceState != null) {
+            player = savedInstanceState.getParcelable(PLAYER)
+        }
+    }
+
 
     fun onMensLeagueClicked(view: View) {
         womensLeagueBtn.isChecked = false
@@ -29,21 +41,21 @@ class LeagueActivity : AppCompatActivity() {
     fun onWomensLeagueClicked(view: View) {
         mensLeagueBtn.isChecked = false
         mixedLeagueBtn.isChecked = false
-        player.league  = "womens"
+        player.league = "womens"
 
     }
 
     fun onMixedLeagueClicked(view: View) {
         mensLeagueBtn.isChecked = false
         womensLeagueBtn.isChecked = false
-        player.league  = "mixed"
+        player.league = "mixed"
 
     }
 
     fun leagueNextClicked(view: View) {
-        if(player.league  !== "") {
+        if (player.league !== "") {
             val skillActivity = Intent(this, SkillActivity::class.java)
-            skillActivity.putExtra(PLAYER, player )
+            skillActivity.putExtra(PLAYER, player)
             startActivity(skillActivity)
         } else {
             Toast.makeText(this, "You must select a league", Toast.LENGTH_SHORT).show()

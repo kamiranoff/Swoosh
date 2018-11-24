@@ -21,6 +21,18 @@ class SkillActivity : AppCompatActivity() {
         player = intent.getParcelableExtra(PLAYER)
     }
 
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelable(PLAYER, player)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if (savedInstanceState != null) {
+            player = savedInstanceState.getParcelable(PLAYER)
+        }
+    }
+
 
     fun onBallerLevelClicked(view: View) {
         beginnerLevelBtn.isChecked = false
